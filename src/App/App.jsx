@@ -1,12 +1,14 @@
 import React from 'react';
-// import { Routes, Route,  } from "react-router-dom";
-import { searchTrendingMovies } from 'services/movies-api';
-import { Container } from 'components/container/Container';
+import { Route, Switch} from "react-router-dom";
+
+// import { searchTrendingMovies } from 'services/movies-api';
 import { Header, Link } from './App.styled';
+import { Container } from 'components/container/Container';
+import { Home } from 'pages/Home';
 
 const App = () => {
 
-  searchTrendingMovies()
+ 
 
   return (
     <Container>
@@ -17,12 +19,14 @@ const App = () => {
           <Link to='/movies'>Movies</Link>
         </nav>
       </Header>
-       {/* <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes> */}
+  
+       <Switch>
+       <Route exact path="/">
+            <Home />
+          </Route>
+     
+      </Switch>
+  
     </Container>
  
   );

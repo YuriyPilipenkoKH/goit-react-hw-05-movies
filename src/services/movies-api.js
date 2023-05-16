@@ -11,7 +11,8 @@ const BASE_URL = `https://api.themoviedb.org/3/`;
 export const searchMovies = async (query, page) =>  {
    
     try {
-        await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}&query=${query}&append_to_response=videos,images`)
+        const data =   await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}&query=${query}&append_to_response=videos,images`)
+        console.log(data);
     } catch (error) {
         
     }
@@ -19,8 +20,16 @@ export const searchMovies = async (query, page) =>  {
 
 export const searchTrendingMovies = async () =>  {
     try {
-        await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}&append_to_response=videos,images`)
+
+      const data =  await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}&append_to_response=videos,images`)
+     
+
+      const {results} = data.data
+      console.log(results);
+      return results
+
     } catch (error) {
         
     }
+    return 
 }
