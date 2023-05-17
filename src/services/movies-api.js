@@ -8,11 +8,13 @@ const BASE_URL = `https://api.themoviedb.org/3/`;
 //details https://api.themoviedb.org/3/movie/343611?api_key=${KEY}&page=1
 // https://api.themoviedb.org/3/movie/157336/videos?api_key=API_KEY
 
-export const searchMovies = async (query, page) =>  {
+export const searchMovies = async (query) =>  {
    
     try {
-        const data =   await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}&query=${query}&append_to_response=videos,images`)
-        console.log(data);
+        const data =   await axios.get(`${BASE_URL}search/movie?api_key=${KEY}&language=en-US&query=${query}&append_to_response=videos,images`)
+
+        const {results} = data.data
+        return results
     } catch (error) {
         
     }
@@ -25,7 +27,6 @@ export const searchTrendingMovies = async () =>  {
      
 
       const {results} = data.data
-      console.log(results);
       return results
 
     } catch (error) {

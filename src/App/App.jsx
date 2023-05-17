@@ -1,10 +1,11 @@
 import React from 'react';
-import { Route, Switch} from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 
 // import { searchTrendingMovies } from 'services/movies-api';
 import { Header, Link } from './App.styled';
 import { Container } from 'components/container/Container';
 import { Home } from 'pages/Home';
+import { Movies } from 'pages/Movies';
 
 const App = () => {
 
@@ -15,18 +16,18 @@ const App = () => {
       <Header>
         <nav>
           <Link to='/'>Home</Link>
-          <Link to='/gallery'>Gallery</Link>
           <Link to='/movies'>Movies</Link>
         </nav>
       </Header>
-  
-       <Switch>
-       <Route exact path="/">
-            <Home />
-          </Route>
-     
-      </Switch>
-  
+
+      <Routes>
+        <Route path ="/" element={<Home />} />
+          <Route path ="/movies" element={<Movies />} />
+        <Route/>
+       
+      
+    
+     </Routes>
     </Container>
  
   );

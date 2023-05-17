@@ -1,14 +1,16 @@
-import { searchTrendingMovies, searchMovies } from "services/movies-api"
-import { useEffect } from "react"
+import { searchTrendingMovies } from "services/movies-api"
+import { useEffect,useState } from "react"
 import MovieCard from "components/MovieCard/MovieCard"
  
 export const Home = () => {
+    const [movies, setMovies] = useState([])
 
 useEffect(() => {
 
-// searchTrendingMovies()
-const res = searchMovies()
-console.log(res);
+    searchTrendingMovies()
+    .then(response =>  setMovies(response))
+   
+
 
 }, [])
 
