@@ -1,18 +1,24 @@
-import React from 'react';
 import { Route, Routes} from "react-router-dom";
-// import { lazy } from 'react';
-// import { searchTrendingMovies } from 'services/movies-api';
+// import { Suspense } from "react";
 import { Header, Link } from './App.styled';
 import { Container } from 'components/container/Container';
-import { Home } from 'pages/Home';
-import { Movies } from 'pages/Movies';
-import { MovieDetails } from 'pages/MovieDetails';
-import { Cast } from 'pages/Cast';
-import { Reviews } from 'pages/Reviews';
 import { ReactComponent as Logo } from '../utils/react-router-movies.svg'
 
-const App = () => {
+// const Home = lazy(() => import('../pages/Home'));
+// const Movies = lazy(() => import('../pages/Movies'));
+// const MovieDetails = lazy(() => import('../pages/MovieDetails'));
+// const Cast = lazy(() => import('../pages/Cast'));
+// const Reviews = lazy(() => import('../pages/Reviews'));
+// const NotFound = lazy(() => import('pages/NotFound'));
 
+import  Home from 'pages/Home';
+import  Movies  from 'pages/Movies';
+import  MovieDetails  from 'pages/MovieDetails';
+import  Cast  from 'components/Cast/Cast';
+import  Reviews  from 'components/Reviews/Reviews';
+
+
+const App = () => {
 
   return (
     <Container>
@@ -32,10 +38,8 @@ const App = () => {
                         <Route path="cast" element={<Cast />}></Route>
                         <Route path="reviews" element={<Reviews />}></Route>
                     </Route> 
+
         <Route/>
-       
-      
-    
      </Routes>
     </Container>
  

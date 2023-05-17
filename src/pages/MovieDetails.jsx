@@ -1,9 +1,9 @@
-import {  Link, NavLink,  useLocation , useParams} from 'react-router-dom';
+import {  Link,   useLocation , useParams} from 'react-router-dom';
 
 import {  useEffect, useRef, useState } from 'react';
 import { fetchMovieById } from 'services/movies-api';
 
-export const MovieDetails =() => {
+ const MovieDetails =() => {
     const [movie, setMovie] = useState({})
     const { movieId } = useParams();
     const location = useLocation();
@@ -40,13 +40,14 @@ export const MovieDetails =() => {
 
          <ul>
             <li>
-                <NavLink to="cast">cast</NavLink>
+                <Link to="cast">cast</Link>
             </li>
             <li>
-                <NavLink to="reviews">reviews</NavLink>
+                <Link to="reviews">reviews</Link>
             </li>
         </ul>
       
     </div>
   )
 }
+export default MovieDetails

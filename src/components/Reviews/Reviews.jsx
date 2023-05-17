@@ -1,9 +1,10 @@
 import React from 'react'
 
-export const  Reviews =() => {
+ const  Reviews =() => {
   return (
     <div>Reviews
       
     </div>
   )
 }
+export default Reviews

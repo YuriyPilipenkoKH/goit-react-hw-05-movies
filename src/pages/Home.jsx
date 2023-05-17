@@ -3,7 +3,7 @@ import { useEffect,useState } from "react"
 // import MovieCard from "components/MovieCard/MovieCard"
 import { Link, useLocation } from 'react-router-dom';
  
-export const Home = () => {
+const Home = () => {
     const [movies, setMovies] = useState([])
     const location = useLocation();
 
@@ -41,3 +41,5 @@ useEffect(() => {
     )
 
 }
+
+export default Home

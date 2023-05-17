@@ -2,7 +2,7 @@ import { searchMovies } from "services/movies-api"
 import { useEffect,useState } from "react"
 import { Link, useLocation } from 'react-router-dom';
 
-export const Movies =() => {
+ const Movies =() => {
   const [movies, setMovies] = useState([])
   const [query, setQuery] = useState('')
   const location = useLocation();
@@ -72,3 +72,4 @@ export const Movies =() => {
     </>
   )
 }
+export default Movies
