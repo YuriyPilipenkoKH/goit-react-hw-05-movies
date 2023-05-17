@@ -1,9 +1,11 @@
 import { searchMovies } from "services/movies-api"
 import { useEffect,useState } from "react"
+import { Link, useLocation } from 'react-router-dom';
 
 export const Movies =() => {
   const [movies, setMovies] = useState([])
   const [query, setQuery] = useState('')
+  const location = useLocation();
 
   useEffect(() => {
     
@@ -30,7 +32,7 @@ export const Movies =() => {
 
 
   return (
-    <div>
+    <>
       <h2>Movies</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
 
@@ -44,7 +46,29 @@ export const Movies =() => {
         <button type='submit'>go</button>
 
       </form>
+
+      <ul>
+            {movies.map(movie => {
+
+                return <li key={movie.id} >
+                      <Link  
+                             to={`movies/${movie.id}`}
+                             state={{ from: location }}
+                            
+                                >
+                    <img 
+                     width='200' 
+                    src ={ `https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                    alt ={movie.original_title}
+                                     
+                     />
+                     <p>{movie.original_title}</p>
+                     </Link>
+                </li>
+                
+            })}
+        </ul>
       
-    </div>
+    </>
   )
 }

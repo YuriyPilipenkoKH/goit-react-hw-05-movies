@@ -20,7 +20,7 @@ export const searchMovies = async (query) =>  {
     }
 }
 
-export const searchTrendingMovies = async () =>  {
+export const fetchTrendingMovies = async () =>  {
     try {
 
       const data =  await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}&append_to_response=videos,images`)
@@ -28,6 +28,20 @@ export const searchTrendingMovies = async () =>  {
 
       const {results} = data.data
       return results
+
+    } catch (error) {
+        
+    }
+    return 
+}
+
+export const fetchMovieById = async (id) =>  {
+    try {
+
+      const data =  await axios.get(`${BASE_URL}movie/${id}?api_key=${KEY}&language=en-US`)
+     
+
+      return data.data
 
     } catch (error) {
         

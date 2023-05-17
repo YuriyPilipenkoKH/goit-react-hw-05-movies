@@ -1,10 +1,15 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 export default function MovieCard() {
+    useEffect(() => {
+
+    }, [])
+
   return (
     <div>
-        <img/>
-        <p></p>
+     
+        <p>card</p>
       
     </div>
   )
