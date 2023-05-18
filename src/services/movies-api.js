@@ -59,3 +59,15 @@ export const getCast = async (id) =>  {
     }
     return 
 }
+export const getReviews = async (id) =>  {
+    try {
+
+      const data =  await axios.get(`${BASE_URL}movie/${id}/reviews?api_key=${KEY}&language=en-US`)
+     
+      
+      return data.data.results
+    } catch (error) {
+        
+    }
+    return 
+}
