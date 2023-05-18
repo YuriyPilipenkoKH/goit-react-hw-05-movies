@@ -11,19 +11,19 @@ const BASE_URL = `https://api.themoviedb.org/3/`;
 export const searchMovies = async (query) =>  {
    
     try {
-        const data =   await axios.get(`${BASE_URL}search/movie?api_key=${KEY}&language=en-US&query=${query}&append_to_response=videos,images`)
+        const data =   await axios.get(`${BASE_URL}search/movie?api_key=${KEY}&language=en-US&query=${query}`)
 
         const {results} = data.data
         return results
     } catch (error) {
         
-    }
+    }//&append_to_response=videos,images
 }
 
 export const fetchTrendingMovies = async () =>  {
     try {
 
-      const data =  await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}&append_to_response=videos,images`)
+      const data =  await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}`)
      
 
       const {results} = data.data
@@ -40,11 +40,9 @@ export const fetchMovieById = async (id) =>  {
 
       const data =  await axios.get(`${BASE_URL}movie/${id}?api_key=${KEY}&language=en-US`)
      
-
       return data.data
+    } catch (error) {    
 
-    } catch (error) {
-        
     }
     return 
 }
@@ -54,9 +52,8 @@ export const getCast = async (id) =>  {
 
       const data =  await axios.get(`${BASE_URL}movie/${id}/credits?api_key=${KEY}&language=en-US`)
      
-        console.log(data);
-      return data.cast
-
+      
+      return data.data.cast
     } catch (error) {
         
     }

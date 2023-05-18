@@ -8,18 +8,25 @@ export const Header = styled.header`
   gap: 25px;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0;
-  margin-bottom: 16px;
+  padding: 8px ;
+ 
   border-bottom: 1px solid black;
 
   > nav {
     display: flex;
-    gap: 8px;
-    justify-self: flex-start; 
+    gap: 18px;
+ 
+  }
+
+  >.logo{
+    width: 100px;
+    height: 32px;
   }
 
   >.KH-icon {
-    justify-self: flex-end; 
+
+    width: 100px;
+    height: 32px;
   }
 `;
 

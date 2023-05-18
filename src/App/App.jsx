@@ -1,50 +1,31 @@
 import { Route, Routes } from "react-router-dom";
-import { Suspense } from "react";
-import { Header, Link } from './App.styled';
+// import { Suspense } from "react";
 import { Container } from 'components/container/Container';
-import { ReactComponent as Logo } from '../utils/react-router-movies.svg'
-import { ReactComponent as Kharkiv } from '../utils/Kharkiv.svg'
 
-// const Home = lazy(() => import('../pages/Home'));
-// const Movies = lazy(() => import('../pages/Movies'));
-// const MovieDetails = lazy(() => import('../pages/MovieDetails'));
-// const Cast = lazy(() => import('../pages/Cast'));
-// const Reviews = lazy(() => import('../pages/Reviews'));
-// const NotFound = lazy(() => import('pages/NotFound'));
 
 import  Home from 'pages/Home';
 import  Movies  from 'pages/Movies';
 import  MovieDetails  from 'pages/MovieDetails';
 import  Cast  from 'components/Cast/Cast';
 import  Reviews  from 'components/Reviews/Reviews';
-
+import SharedLayout from "components/SharedLayout/SharedLayout";
 
 const App = () => {
 
   return (
     <Container>
-      <Header>
-        <Logo width='100' height='32'></Logo>
-
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/movies'>Movies</Link>
-        </nav>
-        <Kharkiv width='26' height='32'></Kharkiv>
-      </Header>
-      <Suspense>
+   
        <Routes>
+       <Route path="/" element={<SharedLayout />}>
        <Route index element={<Home />}></Route>
-                    <Route path="/movies" element={<Movies />}></Route>
-                    <Route path="/movies/:movieId" element={<MovieDetails />}>
-                        <Route path="cast" element={<Cast />}></Route>
-                        <Route path="reviews" element={<Reviews />}></Route>
-                    </Route>
-     
-       
-
+          <Route path="/movies" element={<Movies />}></Route>
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<Cast />}></Route>
+              <Route path="reviews" element={<Reviews />}></Route>
+          </Route>
+          </Route>
        </Routes>
-      </Suspense>
+      
     </Container>
  
   );

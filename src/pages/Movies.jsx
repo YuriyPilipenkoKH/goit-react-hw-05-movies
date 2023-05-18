@@ -9,26 +9,21 @@ import { Link, useLocation } from 'react-router-dom';
 
   useEffect(() => {
     
-
   }, [])
   
   const handleChange = (e) => {
-    const { value } = e.currentTarget;
-    
+    const { value } = e.currentTarget;  
     setQuery(value);
  
   };
 
   const handleSubmit = (e) => {
-  
     e.preventDefault();
     searchMovies(query)
     .then(response => setMovies(response))
   
     setQuery('');
   };
-
-
 
 
   return (
@@ -53,14 +48,16 @@ import { Link, useLocation } from 'react-router-dom';
                 return <li key={movie.id} >
                       <Link  
                              to={`${movie.id}`}
-                             state={{ from: location }}
-                            
+                             state={{ from: location }}               
                                 >
                     <img 
                      width='200' 
-                    src ={ `https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                    alt ={movie.original_title}
-                                     
+                     src={
+                      movie.poster_path
+                          ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+                          : 'https://abrakadabra.fun/uploads/posts/2022-03/1647481521_4-abrakadabra-fun-p-kinokompanii-mira-zastavki-5.jpg'
+                  }
+                    alt ={movie.original_title}                  
                      />
                      <p>{movie.original_title}</p>
                      </Link>
