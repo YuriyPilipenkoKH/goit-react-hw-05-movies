@@ -5,7 +5,7 @@ import { getCast } from 'services/movies-api';
  const Cast =()=> {
   // const [actors, setActors] = useState([]);
     const { movieId } = useParams();
-    console.log(movieId);
+    console.log('Cast',movieId);
 
     useEffect(() => {
         console.log('cast');
@@ -15,7 +15,9 @@ import { getCast } from 'services/movies-api';
 
   return (
     <>
-        <div>Cast</div>
+        <div>Cast
+        <h1>Actors</h1>
+        </div>
     </>
   )
 }

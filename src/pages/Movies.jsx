@@ -52,7 +52,7 @@ import { Link, useLocation } from 'react-router-dom';
 
                 return <li key={movie.id} >
                       <Link  
-                             to={`movies/${movie.id}`}
+                             to={`${movie.id}`}
                              state={{ from: location }}
                             
                                 >

@@ -5,15 +5,21 @@ import { NavLink } from "react-router-dom";
 export const Header = styled.header`
   width: 100%;
   display: flex;
+  gap: 25px;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
   padding: 8px 0;
   margin-bottom: 16px;
   border-bottom: 1px solid black;
 
   > nav {
     display: flex;
+    gap: 8px;
+    justify-self: flex-start; 
+  }
+
+  >.KH-icon {
+    justify-self: flex-end; 
   }
 `;
 

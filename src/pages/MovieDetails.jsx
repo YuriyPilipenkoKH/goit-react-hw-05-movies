@@ -1,4 +1,4 @@
-import {  Link,   useLocation , useParams} from 'react-router-dom';
+import {Outlet,  Link,   useLocation , useParams} from 'react-router-dom';
 
 import {  useEffect, useRef, useState } from 'react';
 import { fetchMovieById } from 'services/movies-api';
@@ -46,7 +46,7 @@ import { fetchMovieById } from 'services/movies-api';
                 <Link to="reviews">reviews</Link>
             </li>
         </ul>
-      
+      <Outlet/>
     </div>
   )
 }

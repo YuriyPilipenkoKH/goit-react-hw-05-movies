@@ -1,5 +1,5 @@
-import { Route, Routes} from "react-router-dom";
-// import { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import { Suspense } from "react";
 import { Header, Link } from './App.styled';
 import { Container } from 'components/container/Container';
 import { ReactComponent as Logo } from '../utils/react-router-movies.svg'
@@ -32,17 +32,19 @@ const App = () => {
         </nav>
         <Kharkiv width='26' height='32'></Kharkiv>
       </Header>
-
-      <Routes>
-        <Route path ="/" element={<Home />} />
-          <Route path ="/movies" element={<Movies />} />
-           <Route path="/movies/:movieId" element={<MovieDetails />}>
+      <Suspense>
+       <Routes>
+       <Route index element={<Home />}></Route>
+                    <Route path="/movies" element={<Movies />}></Route>
+                    <Route path="/movies/:movieId" element={<MovieDetails />}>
                         <Route path="cast" element={<Cast />}></Route>
                         <Route path="reviews" element={<Reviews />}></Route>
-                    </Route> 
+                    </Route>
+     
+       
 
-        <Route/>
-     </Routes>
+       </Routes>
+      </Suspense>
     </Container>
  
   );
