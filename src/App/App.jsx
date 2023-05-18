@@ -3,6 +3,7 @@ import { Route, Routes} from "react-router-dom";
 import { Header, Link } from './App.styled';
 import { Container } from 'components/container/Container';
 import { ReactComponent as Logo } from '../utils/react-router-movies.svg'
+import { ReactComponent as Kharkiv } from '../utils/Kharkiv.svg'
 
 // const Home = lazy(() => import('../pages/Home'));
 // const Movies = lazy(() => import('../pages/Movies'));
@@ -29,6 +30,7 @@ const App = () => {
           <Link to='/'>Home</Link>
           <Link to='/movies'>Movies</Link>
         </nav>
+        <Kharkiv width='26' height='32'></Kharkiv>
       </Header>
 
       <Routes>
