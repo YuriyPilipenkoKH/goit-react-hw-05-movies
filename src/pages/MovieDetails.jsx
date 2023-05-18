@@ -1,18 +1,25 @@
-import {Outlet,  Link,   useLocation , useParams} from 'react-router-dom';
-
-import {  useEffect, useRef, useState } from 'react';
+import { Outlet,  Link,  useLocation , useParams} from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import { fetchMovieById } from 'services/movies-api';
+import Loader from 'components/Loader/Loader';
 
  const MovieDetails =() => {
     const [movie, setMovie] = useState({})
+    const [isLoading, setIsLoading] = useState(false);
+
     const { movieId } = useParams();
     const location = useLocation();
     const backLinkLocation = useRef(location.state?.from ?? '/');
 
 
     useEffect(() => {
+        setIsLoading(true);
         fetchMovieById(movieId)
         .then(response => setMovie(response))
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 300);
     }, [movieId])
 
     const { title, poster_path, genres, overview, vote_average } = movie
@@ -46,6 +53,7 @@ import { fetchMovieById } from 'services/movies-api';
                 <Link to="reviews">reviews</Link>
             </li>
         </ul>
+        {isLoading && <Loader className="loader" />}
       <Outlet/>
     </div>
   )

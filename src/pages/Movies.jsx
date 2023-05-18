@@ -1,10 +1,12 @@
 import { searchMovies } from "services/movies-api"
 import { useEffect,useState } from "react"
 import { Link, useLocation } from 'react-router-dom';
+import Loader from 'components/Loader/Loader';
 
  const Movies =() => {
   const [movies, setMovies] = useState([])
   const [query, setQuery] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -19,8 +21,13 @@ import { Link, useLocation } from 'react-router-dom';
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     searchMovies(query)
     .then(response => setMovies(response))
+
+    setTimeout(() => {
+      setIsLoading(false);
+  }, 300);
   
     setQuery('');
   };
@@ -65,7 +72,7 @@ import { Link, useLocation } from 'react-router-dom';
                 
             })}
         </ul>
-      
+        {isLoading && <Loader className="loader" />}
     </>
   )
 }

@@ -1,17 +1,22 @@
 import {  useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCast } from 'services/movies-api';
-
+import Loader from 'components/Loader/Loader';
 
  const Cast =()=> {
-  const [actors, setActors] = useState([]);
+    const [actors, setActors] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const { movieId } = useParams();
-    console.log('Cast',movieId);
-
+   
     useEffect(() => {
-        
+      setIsLoading(true);
         getCast(movieId)
         .then(response => setActors(response))
+
+        setTimeout(() => {
+          setIsLoading(false);
+      }, 300);
+      
     },[movieId]);
 
   return (
@@ -35,6 +40,7 @@ import { getCast } from 'services/movies-api';
                 </li>
             ))}
        </ul>
+       {isLoading && <Loader className="loader" />}
     </>
   )
 }

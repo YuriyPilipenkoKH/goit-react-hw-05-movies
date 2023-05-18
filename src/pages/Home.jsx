@@ -2,15 +2,21 @@ import { fetchTrendingMovies } from "services/movies-api"
 import { useEffect,useState } from "react"
 // import MovieCard from "components/MovieCard/MovieCard"
 import { Link, useLocation } from 'react-router-dom';
+import Loader from 'components/Loader/Loader';
  
 const Home = () => {
     const [movies, setMovies] = useState([])
+    const [isLoading, setIsLoading] = useState(false);
     const location = useLocation();
 
 useEffect(() => {
-
+    setIsLoading(true);
     fetchTrendingMovies()
     .then(response =>  setMovies(response))
+
+    setTimeout(() => {
+        setIsLoading(false);
+    }, 100);
 }, [])
 
     return (
@@ -37,6 +43,7 @@ useEffect(() => {
                 
             })}
         </ul>
+        {isLoading && <Loader className="loader" />}
         </>
     )
 
