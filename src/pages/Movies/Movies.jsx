@@ -35,7 +35,7 @@ import Loader from 'components/Loader/Loader';
 
   return (
     <>
-      <h2>Movies</h2>
+      <h2 className="visually-hidden">Movie Search</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
 
         <input 

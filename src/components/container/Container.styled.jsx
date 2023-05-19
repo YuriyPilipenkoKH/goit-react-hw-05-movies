@@ -6,6 +6,6 @@ export const MainContainer = styled.div`
     place-items: center;
     grid-gap: 50px;
     background-color: var(--body-color);
-    padding: 16px;
+    padding: 0 16px;
     margin: 0 auto;
 `

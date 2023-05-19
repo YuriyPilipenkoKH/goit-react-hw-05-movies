@@ -16,12 +16,12 @@ useEffect(() => {
 
     setTimeout(() => {
         setIsLoading(false);
-    }, 100);
+    }, 300);
 }, [])
 
     return (
         <>
-        <h1 className="visually-hidden"> Trending Movies</h1>
+        <h2 className="visually-hidden"> Trending Movies</h2>
         <StyledUl>
             {movies.map(movie => {
                 return <li key={movie.id} >
