@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/goit-react-hw-05-movies/static/css/main.2f8ed515.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.b6459cdf.js",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.ba17b277.js",
     "static/media/Kharkiv.svg": "/goit-react-hw-05-movies/static/media/Kharkiv.b28f7a2ffe3c9f27e37435c4b635c549.svg",
     "static/media/react-router-movies.svg": "/goit-react-hw-05-movies/static/media/react-router-movies.2159185138d34f6da672be7136a9490b.svg",
     "static/media/react.svg": "/goit-react-hw-05-movies/static/media/react.91629728c18e6e352a268a78615c7522.svg",
     "index.html": "/goit-react-hw-05-movies/index.html",
     "main.2f8ed515.css.map": "/goit-react-hw-05-movies/static/css/main.2f8ed515.css.map",
-    "main.b6459cdf.js.map": "/goit-react-hw-05-movies/static/js/main.b6459cdf.js.map"
+    "main.ba17b277.js.map": "/goit-react-hw-05-movies/static/js/main.ba17b277.js.map"
   },
   "entrypoints": [
     "static/css/main.2f8ed515.css",
-    "static/js/main.b6459cdf.js"
+    "static/js/main.ba17b277.js"
   ]
 }
