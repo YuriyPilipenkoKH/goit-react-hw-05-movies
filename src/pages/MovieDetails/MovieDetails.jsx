@@ -22,7 +22,8 @@ import Loader from 'components/Loader/Loader';
         }, 300);
     }, [movieId])
 
-    const { title, poster_path, genres, overview, vote_average } = movie
+    const { title, poster_path,backdrop_path
+,        genres, overview, vote_average } = movie
     
   return (
     <div>
@@ -30,6 +31,11 @@ import Loader from 'components/Loader/Loader';
         <img src={poster_path &&  `https://image.tmdb.org/t/p/w500/${poster_path}`} 
          alt={title}
          width='200' 
+         />
+        <img src={backdrop_path &&  `https://image.tmdb.org/t/p/w500/${backdrop_path}`} 
+         alt={title}
+         width='600' 
+         className='blur_back'
          />
 
          <h2>{title}</h2>

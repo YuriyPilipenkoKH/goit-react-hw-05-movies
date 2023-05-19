@@ -3,12 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import { Container } from 'components/container/Container';
 
 
-import  Home from 'pages/Home';
-import  Movies  from 'pages/Movies';
-import  MovieDetails  from 'pages/MovieDetails';
+import  Home from 'pages/Home/Home';
+import  Movies  from 'pages/Movies/Movies';
+import  MovieDetails  from 'pages/MovieDetails/MovieDetails';
 import  Cast  from 'components/Cast/Cast';
 import  Reviews  from 'components/Reviews/Reviews';
-import SharedLayout from "components/SharedLayout/SharedLayout";
+import  SharedLayout from "components/SharedLayout/SharedLayout";
 
 const App = () => {
 

@@ -71,13 +71,29 @@ h1,h2,h3,h4,h5,h6,p {
 ul {
 list-style: none;
   padding: 0;
+  margin: 0;
 }
 li{
   padding: 0;
+  margin: 0;
 }
 img {
   display: block;
 
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 
@@ -311,3 +327,11 @@ img {
   display: flex;
 }
 
+.blur_back{
+  width: 80%;
+  background-position: -100% 10% !important;  
+}
+
+.bright_back{
+  background: url("https://occ-0-2433-448.1.nflxso.net/art/cd5c9/3e192edf2027c536e25bb5d3b6ac93ced77cd5c9.jpg");
+}
