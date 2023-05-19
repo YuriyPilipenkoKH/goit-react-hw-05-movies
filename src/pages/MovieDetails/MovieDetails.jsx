@@ -38,7 +38,9 @@ import { CardWrapper , StyledLink, InfoWrapper} from './MovieDetails.styled';
              />
              <InfoWrapper>
                  <h2>{title}</h2>
-                {overview ?  <p>{overview}</p> : 'We don`t have description for this movie' }
+                {overview 
+                ?  <p>{overview}</p> 
+                :  <p>We don`t have description for this movie</p>  }
                 
                  <span>User score: <span className='dynamic'>{vote_average && vote_average.toFixed(1)}/10</span></span>
                  

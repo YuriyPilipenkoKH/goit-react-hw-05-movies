@@ -31,6 +31,7 @@ export const StyledLink  = styled(Link)`
   border-radius: 4px;
   padding: 8px 24px ;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
   outline: none;
   box-shadow: var(--shadow-four);

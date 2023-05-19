@@ -33,7 +33,7 @@ import { iconLens2 } from "utils/svgIcons";
       setIsLoading(false);
   }, 300);
   
-    setQuery('');
+    // setQuery('');
   };
 
 
