@@ -346,3 +346,8 @@ img {
 .back-link {
   align-self: start;
 }
+
+.iconLens2 {
+  fill: #eee;
+  transition: 0.4s ease;
+}

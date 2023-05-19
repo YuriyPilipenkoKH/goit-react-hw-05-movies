@@ -4,6 +4,7 @@ import {Link}  from 'react-router-dom';
 
 export const CardWrapper  = styled.div`
     width: 90%;
+    height: 450px;
     /* margin: 0 auto; */
     display: flex;
     gap: 32px;

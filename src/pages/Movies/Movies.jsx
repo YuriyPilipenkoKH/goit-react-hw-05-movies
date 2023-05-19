@@ -5,6 +5,7 @@ import Loader from 'components/Loader/Loader';
 import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "pages/Home/Home.styled";
 import { SearchForm } from "./Movies.styled";
 import Button from "components/Button/Button";
+import { iconLens2 } from "utils/svgIcons";
 
  const Movies =() => {
   const [movies, setMovies] = useState([])
@@ -48,7 +49,7 @@ import Button from "components/Button/Button";
          onChange={handleChange}
         
          />
-        <Button type='submit'>go</Button>
+        <Button type='submit'> {iconLens2}</Button>
 
       </SearchForm>
 

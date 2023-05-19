@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getReviews } from 'services/movies-api';
 import Loader from 'components/Loader/Loader';
 import { ReviewList } from './Reviews.styled';
+import { Note } from 'pages/Movies/Movies.styled';
 
  const  Reviews =() => {
   const [reviews, setRewiews] = useState([]);
@@ -23,7 +24,7 @@ import { ReviewList } from './Reviews.styled';
     <>
       <ReviewList>
       {reviews < 1 && (
-          <p>We don`t have any reviews for this movie!</p>
+          <Note >We don`t have any reviews for this movie!</Note>
       )}
       {reviews.map(review => (
           <li key={review.id}>

@@ -29,7 +29,7 @@ export const StyledUl= styled.ul`
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    column-gap: 32px;
+    column-gap: 60px;
     justify-content: center;
 `
 

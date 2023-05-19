@@ -39,8 +39,8 @@ import Button from 'components/Button/Button';
              />
              <InfoWrapper>
                  <h2>{title}</h2>
+                {overview ?  <p>{overview}</p> : 'We don`t have description for this movie' }
                 
-                 <p>{overview}</p>
                  <span>User score: <span className='dynamic'>{vote_average && vote_average.toFixed(1)}/10</span></span>
                  
                  <ul className='genres'>
@@ -49,7 +49,9 @@ import Button from 'components/Button/Button';
                         <li key={genre.id}>
                             {genre.name}
                         </li>
-                    ))}
+                    ))
+                        
+                    }
                  </ul>
                  <span>Release: <span className='dynamic'>{release_date}</span></span>
         <ul className='special-links'>
