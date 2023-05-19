@@ -25,12 +25,25 @@ export const MainHeader= styled.header`
   >.logo{
     width: 100px;
     height: 32px;
+
+    color:var(--teal);
+    transition: 0.4s ease;
+
+&:hover {
+    color: var(--react-color);
+}
   }
 
   >.KH-icon {
 
     width: 100px;
     height: 32px;
+    color: #222;
+    transition: 0.4s ease;
+
+    &:hover {
+        color: var(--teal);
+    }
   }
 `
 

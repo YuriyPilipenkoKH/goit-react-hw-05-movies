@@ -15,6 +15,16 @@ export const StyledLink= styled(Link)`
     }
 `
 
+export const ImgWrap= styled.ul`
+    width: 200px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9e3fa;
+`
+
+
 export const StyledUl= styled.ul`
     display: flex;
     flex-wrap: wrap;
@@ -34,6 +44,7 @@ export const CardInfo= styled.h3`
 
     &>p {
         font-size: 10px;
+        color: #555;
     }
 `
 
@@ -41,4 +52,8 @@ export const MovieTitle= styled.h3`
     height: 70px;
     font-size: 14px;
     color: #222;
+`
+export const Count= styled.span`
+  
+    color:var(--blue);
 `

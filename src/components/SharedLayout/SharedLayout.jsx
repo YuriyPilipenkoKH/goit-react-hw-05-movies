@@ -10,13 +10,13 @@ const SharedLayout = () => {
     return (
         <>
       <MainHeader>
-        <Logo className="logo"></Logo>
+        <Logo className="logo" ></Logo>
 
         <nav>
           <StyledLink to='/'>Home</StyledLink>
           <StyledLink to='/movies'>Movies</StyledLink>
         </nav>
-        <Kharkiv className="KH-icon"></Kharkiv>
+        <Kharkiv className="KH-icon" ></Kharkiv>
       </MainHeader>
 
             <Suspense  >

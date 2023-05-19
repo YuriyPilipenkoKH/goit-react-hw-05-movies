@@ -1,7 +1,10 @@
 import { searchMovies } from "services/movies-api"
 import { useEffect,useState } from "react"
-import { Link, useLocation } from 'react-router-dom';
+import {  useLocation } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
+import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "pages/Home/Home.styled";
+import { SearchForm, Note } from "./Movies.styled";
+import Button from "components/Button/Button";
 
  const Movies =() => {
   const [movies, setMovies] = useState([])
@@ -36,7 +39,7 @@ import Loader from 'components/Loader/Loader';
   return (
     <>
       <h2 className="visually-hidden">Movie Search</h2>
-      <form autoComplete="off" onSubmit={handleSubmit}>
+      <SearchForm autoComplete="off" onSubmit={handleSubmit}>
 
         <input 
         type="text"
@@ -45,33 +48,44 @@ import Loader from 'components/Loader/Loader';
          onChange={handleChange}
         
          />
-        <button type='submit'>go</button>
+        <Button type='submit'>go</Button>
 
-      </form>
+      </SearchForm>
 
-      <ul>
+      <StyledUl>
+      {movies < 1 && (
+                <Note>Nothing was found</Note>
+            )}
             {movies.map(movie => {
 
                 return <li key={movie.id} >
-                      <Link  
+                      <StyledLink   
                              to={`${movie.id}`}
                              state={{ from: location }}               
                                 >
-                    <img 
-                     width='200' 
-                     src={
-                      movie.poster_path
-                          ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
-                          : 'https://abrakadabra.fun/uploads/posts/2022-03/1647481521_4-abrakadabra-fun-p-kinokompanii-mira-zastavki-5.jpg'
-                  }
-                    alt ={movie.original_title}                  
-                     />
-                     <p>{movie.original_title}</p>
-                     </Link>
+                    <ImgWrap>
+                      <img
+                       width='200'
+                       src={
+                        movie.poster_path
+                            ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+                            : 'https://abrakadabra.fun/uploads/posts/2022-03/1647481521_4-abrakadabra-fun-p-kinokompanii-mira-zastavki-5.jpg'
+                                        }
+                      alt ={movie.original_title}
+                       />
+                    </ImgWrap>
+                        <CardInfo className="card__info">
+                         <MovieTitle>{movie.original_title}</MovieTitle>
+                         <p>
+                            <Count>{(movie.vote_average).toFixed(1)}
+                            </Count>/10
+                            </p>
+                     </CardInfo>
+                     </StyledLink>
                 </li>
                 
             })}
-        </ul>
+        </StyledUl>
         {isLoading && <Loader className="loader" />}
     </>
   )

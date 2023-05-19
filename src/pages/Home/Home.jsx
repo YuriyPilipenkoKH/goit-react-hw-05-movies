@@ -2,7 +2,8 @@ import { fetchTrendingMovies } from "services/movies-api"
 import { useEffect,useState } from "react"
 import { useLocation } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
-import { StyledLink, StyledUl, MovieTitle, CardInfo } from "./Home.styled"; 
+import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "./Home.styled"; 
+
  
 const Home = () => {
     const [movies, setMovies] = useState([])
@@ -29,15 +30,20 @@ useEffect(() => {
                              to={`movies/${movie.id}`}
                              state={{ from: location }}
                                 >
-                    <img 
-                     width='200' 
-                    src ={ `https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                    alt ={movie.original_title}                         
-                     />
+                    <ImgWrap>
+                        <img
+                         width='200'
+                        src ={ `https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                        alt ={movie.original_title}
+                         />
+                    </ImgWrap>
 
                      <CardInfo className="card__info">
                          <MovieTitle>{movie.original_title}</MovieTitle>
-                         <p>{Math.round(movie.vote_average)}/10</p>
+                         <p>
+                            <Count>{(movie.vote_average).toFixed(1)}
+                            </Count>/10
+                            </p>
                      </CardInfo>
                      </StyledLink>
                 </li>
