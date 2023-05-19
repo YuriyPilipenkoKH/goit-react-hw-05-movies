@@ -3,7 +3,7 @@ import { useEffect,useState } from "react"
 import {  useLocation } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "pages/Home/Home.styled";
-import { SearchForm, Note } from "./Movies.styled";
+import { SearchForm } from "./Movies.styled";
 import Button from "components/Button/Button";
 
  const Movies =() => {
@@ -13,7 +13,7 @@ import Button from "components/Button/Button";
   const location = useLocation();
 
   useEffect(() => {
-    
+
   }, [])
   
   const handleChange = (e) => {
@@ -53,9 +53,7 @@ import Button from "components/Button/Button";
       </SearchForm>
 
       <StyledUl>
-      {movies < 1 && (
-                <Note>Nothing was found</Note>
-            )}
+   
             {movies.map(movie => {
 
                 return <li key={movie.id} >

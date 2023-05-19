@@ -15,7 +15,7 @@ export const StyledLink= styled(Link)`
     }
 `
 
-export const ImgWrap= styled.ul`
+export const ImgWrap= styled.div`
     width: 200px;
     height: 300px;
     display: flex;
@@ -33,7 +33,7 @@ export const StyledUl= styled.ul`
     justify-content: center;
 `
 
-export const CardInfo= styled.h3`
+export const CardInfo= styled.div`
     display: flex;
     gap: 8px;
     justify-content: space-between;

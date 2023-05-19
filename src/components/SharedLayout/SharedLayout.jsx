@@ -19,7 +19,7 @@ const SharedLayout = () => {
         <Kharkiv className="KH-icon" ></Kharkiv>
       </MainHeader>
 
-            <Suspense  >
+      <Suspense >
                 <Outlet />
             </Suspense>
         </>

@@ -2,6 +2,7 @@ import { Outlet,  Link,  useLocation , useParams} from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { fetchMovieById } from 'services/movies-api';
 import Loader from 'components/Loader/Loader';
+import { CardWrapper } from './MovieDetails.styled';
 
  const MovieDetails =() => {
     const [movie, setMovie] = useState({})
@@ -22,36 +23,31 @@ import Loader from 'components/Loader/Loader';
         }, 300);
     }, [movieId])
 
-    const { title, poster_path,backdrop_path
+    const { title, poster_path
 ,        genres, overview, vote_average } = movie
     
   return (
-    <div>
+    <div className='moviedetails-container'>
         <Link to={backLinkLocation.current}>Go back</Link>
-        <img src={poster_path &&  `https://image.tmdb.org/t/p/w500/${poster_path}`} 
-         alt={title}
-         width='200' 
-         />
-        <img src={backdrop_path &&  `https://image.tmdb.org/t/p/w500/${backdrop_path}`} 
-         alt={title}
-         width='600' 
-         className='blur_back'
-         />
-
-         <h2>{title}</h2>
-         <p> User score: {vote_average && vote_average.toFixed(2)}%</p>
-         <h3>overview</h3>
-         <p>{overview}</p>
-         <ul>
-         {genres &&
-            genres.map(genre => (
-                <li key={genre.id}>
-                    {genre.name}
-                </li>
-            ))}
-         </ul>
-
-         <ul>
+        <CardWrapper>
+            <img src={poster_path &&  `https://image.tmdb.org/t/p/w500/${poster_path}`}
+             alt={title}
+             width='300'
+             />
+             <div>
+                 <h2>{title}</h2>
+                 <p> User score: {vote_average && vote_average.toFixed(2)}%</p>
+                 <h3>overview</h3>
+                 <p>{overview}</p>
+                 <ul>
+                 {genres &&
+                    genres.map(genre => (
+                        <li key={genre.id}>
+                            {genre.name}
+                        </li>
+                    ))}
+                 </ul>
+                 <ul>
             <li>
                 <Link to="cast">cast</Link>
             </li>
@@ -59,6 +55,12 @@ import Loader from 'components/Loader/Loader';
                 <Link to="reviews">reviews</Link>
             </li>
         </ul>
+
+             </div>
+     
+        </CardWrapper>
+
+
         {isLoading && <Loader className="loader" />}
       <Outlet/>
     </div>

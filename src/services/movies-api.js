@@ -1,4 +1,5 @@
 import axios from "axios";
+import Notiflix from "notiflix";
 
 const KEY = '178f7f77d46b35123e714d6df55184fe'
 
@@ -14,6 +15,10 @@ export const searchMovies = async (query) =>  {
         const data =   await axios.get(`${BASE_URL}search/movie?api_key=${KEY}&language=en-US&query=${query}`)
 
         const {results} = data.data
+
+        if (results.length === 0) {
+            Notiflix.Notify.failure(`Nothing was found.`);
+         }
         return results
     } catch (error) {
         
@@ -39,7 +44,8 @@ export const fetchMovieById = async (id) =>  {
     try {
 
       const data =  await axios.get(`${BASE_URL}movie/${id}?api_key=${KEY}&language=en-US`)
-     
+
+    
       return data.data
     } catch (error) {    
 
