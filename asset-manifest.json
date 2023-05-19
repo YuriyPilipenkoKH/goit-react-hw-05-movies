@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/goit-react-hw-05-movies/static/css/main.09ee7843.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.eb5aa355.js",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.c0aafd34.js",
     "static/media/Kharkiv.svg": "/goit-react-hw-05-movies/static/media/Kharkiv.8b61d7b5a6e0a1dc6053f661b2092b84.svg",
     "static/media/react-router-movies.svg": "/goit-react-hw-05-movies/static/media/react-router-movies.e259513e11486bb7b55084dd3e8a8d3e.svg",
     "static/media/reactHook.svg": "/goit-react-hw-05-movies/static/media/reactHook.b944288c7e97f46deaf07de23a6a9312.svg",
     "static/media/react.svg": "/goit-react-hw-05-movies/static/media/react.91629728c18e6e352a268a78615c7522.svg",
     "index.html": "/goit-react-hw-05-movies/index.html",
     "main.09ee7843.css.map": "/goit-react-hw-05-movies/static/css/main.09ee7843.css.map",
-    "main.eb5aa355.js.map": "/goit-react-hw-05-movies/static/js/main.eb5aa355.js.map"
+    "main.c0aafd34.js.map": "/goit-react-hw-05-movies/static/js/main.c0aafd34.js.map"
   },
   "entrypoints": [
     "static/css/main.09ee7843.css",
-    "static/js/main.eb5aa355.js"
+    "static/js/main.c0aafd34.js"
   ]
 }
