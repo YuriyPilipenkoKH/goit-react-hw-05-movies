@@ -6,7 +6,13 @@ export const StyledLink= styled(Link)`
     display: flex;
     flex-direction: column;
     border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.4s ease;
 
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: var(--shadow-two);
+    }
 `
 
 export const StyledUl= styled.ul`
@@ -15,4 +21,24 @@ export const StyledUl= styled.ul`
     gap: 40px;
     column-gap: 32px;
     justify-content: center;
+`
+
+export const CardInfo= styled.h3`
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    padding:  12px;
+    background-color: var(--beige);
+    
+    border-radius: 0 0 8px 8px;
+
+    &>p {
+        font-size: 10px;
+    }
+`
+
+export const MovieTitle= styled.h3`
+    height: 70px;
+    font-size: 14px;
+    color: #222;
 `

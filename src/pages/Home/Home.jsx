@@ -2,7 +2,7 @@ import { fetchTrendingMovies } from "services/movies-api"
 import { useEffect,useState } from "react"
 import { useLocation } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
-import { StyledLink, StyledUl } from "./Home.styled"; 
+import { StyledLink, StyledUl, MovieTitle, CardInfo } from "./Home.styled"; 
  
 const Home = () => {
     const [movies, setMovies] = useState([])
@@ -35,9 +35,10 @@ useEffect(() => {
                     alt ={movie.original_title}                         
                      />
 
-                     <div className="card__info">
-                         <p>{movie.original_title}</p>
-                     </div>
+                     <CardInfo className="card__info">
+                         <MovieTitle>{movie.original_title}</MovieTitle>
+                         <p>{Math.round(movie.vote_average)}/10</p>
+                     </CardInfo>
                      </StyledLink>
                 </li>
                 
