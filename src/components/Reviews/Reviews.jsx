@@ -2,7 +2,7 @@ import {  useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviews } from 'services/movies-api';
 import Loader from 'components/Loader/Loader';
-
+import { ReviewList } from './Reviews.styled';
 
  const  Reviews =() => {
   const [reviews, setRewiews] = useState([]);
@@ -21,7 +21,7 @@ import Loader from 'components/Loader/Loader';
 
   return (
     <>
-      <ul>
+      <ReviewList>
       {reviews < 1 && (
           <p>We don`t have any reviews for this movie!</p>
       )}
@@ -31,7 +31,7 @@ import Loader from 'components/Loader/Loader';
               <p>{review.content}</p>
           </li>
       ))}
-      </ul>
+      </ReviewList>
       {isLoading && <Loader className="loader" />}
     </>
   )

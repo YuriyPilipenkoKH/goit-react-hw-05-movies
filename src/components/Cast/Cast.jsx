@@ -2,6 +2,7 @@ import {  useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCast } from 'services/movies-api';
 import Loader from 'components/Loader/Loader';
+import { ListWrap } from './Cast.styled';
 
  const Cast =()=> {
     const [actors, setActors] = useState([]);
@@ -21,25 +22,27 @@ import Loader from 'components/Loader/Loader';
 
   return (
     <>
-       <ul>
+       <ListWrap>
        {actors < 1 && (
                 <span>We don`t have a cast list for this movie!</span>
             )}
-       {actors.map(credit => (
-                <li key={credit.id && credit.id}>
+       {actors.slice(0, 16).map(actor => (
+                <li key={actor.id && actor.id}>
                     <img
                         src={
-                            credit.profile_path
-                                ? `https://image.tmdb.org/t/p/original${credit.profile_path}`
+                          actor.profile_path
+                                ? `https://image.tmdb.org/t/p/original${actor.profile_path}`
                                 : 'https://abrakadabra.fun/uploads/posts/2022-02/1644922919_1-abrakadabra-fun-p-risunki-krutie-dlya-patsanov-1.jpg'
                         }
-                        alt={credit.name}
-                        width='100'                    />
-                    <h3>{credit.name}</h3>
-                    <p>{credit.character}</p>
+                        alt={actor.name}
+                        width='200'                    />
+                    <div className='info-wrapper'>
+                      <h3>{actor.name}</h3>
+                      <p>Role: {actor.character}</p>
+                    </div>
                 </li>
             ))}
-       </ul>
+       </ListWrap>
        {isLoading && <Loader className="loader" />}
     </>
   )
