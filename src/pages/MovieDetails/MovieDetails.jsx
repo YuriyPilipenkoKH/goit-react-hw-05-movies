@@ -1,8 +1,9 @@
-import { Outlet,  Link,  useLocation , useParams} from 'react-router-dom';
+import { Outlet,  useLocation , useParams} from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { fetchMovieById } from 'services/movies-api';
 import Loader from 'components/Loader/Loader';
-import { CardWrapper } from './MovieDetails.styled';
+import { CardWrapper , StyledLink, InfoWrapper} from './MovieDetails.styled';
+import Button from 'components/Button/Button';
 
  const MovieDetails =() => {
     const [movie, setMovie] = useState({})
@@ -24,39 +25,43 @@ import { CardWrapper } from './MovieDetails.styled';
     }, [movieId])
 
     const { title, poster_path
-,        genres, overview, vote_average } = movie
+,        genres, overview, vote_average,release_date} = movie
     
   return (
     <div className='moviedetails-container'>
-        <Link to={backLinkLocation.current}>Go back</Link>
+        <Button className= 'back-link'>
+            <StyledLink to={backLinkLocation.current}>Go back</StyledLink>
+        </Button>
         <CardWrapper>
             <img src={poster_path &&  `https://image.tmdb.org/t/p/w500/${poster_path}`}
              alt={title}
              width='300'
              />
-             <div>
+             <InfoWrapper>
                  <h2>{title}</h2>
-                 <p> User score: {vote_average && vote_average.toFixed(2)}%</p>
-                 <h3>overview</h3>
+                
                  <p>{overview}</p>
-                 <ul>
+                 <span>User score: <span className='dynamic'>{vote_average && vote_average.toFixed(1)}/10</span></span>
+                 
+                 <ul className='genres'>
                  {genres &&
-                    genres.map(genre => (
+                    genres.slice(0, 3).map(genre => (
                         <li key={genre.id}>
                             {genre.name}
                         </li>
                     ))}
                  </ul>
-                 <ul>
-            <li>
-                <Link to="cast">cast</Link>
-            </li>
-            <li>
-                <Link to="reviews">reviews</Link>
-            </li>
+                 <span>Release: <span className='dynamic'>{release_date}</span></span>
+        <ul className='special-links'>
+            <Button >
+                <StyledLink to="cast">Cast</StyledLink>
+            </Button>
+            <Button>
+                <StyledLink to="reviews">Reviews</StyledLink>
+            </Button>
         </ul>
 
-             </div>
+             </InfoWrapper>
      
         </CardWrapper>
 

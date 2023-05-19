@@ -68,5 +68,6 @@ export const StyledLink = styled(NavLink)`
     color: white;
     background-color: var(--green);
     border:2px solid transparent;
+    box-shadow: var(--shadow-four);
   }
 `;

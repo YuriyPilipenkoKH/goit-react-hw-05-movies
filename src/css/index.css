@@ -27,7 +27,6 @@ body {
   --overlay-color: #00000066;
   --body-color: #cad9d9;
   --react-color: #00ccec;
-  --orange: orange;
   --white: #ffffff;
   --black: #010101;
   --bright-green: #12e319;
@@ -44,7 +43,7 @@ body {
   --beige: #f5f5dc;
   --adelyn: #C204B9;
   --chamomile: #E9DBC4;
-
+  --sand-color: #d6ab40;
   --time: 250ms;
 
   --shadow-one: 1rem 1rem 2rem rgb(65, 64, 64), -1rem -1rem 2rem rgb(82, 81, 81);
@@ -79,7 +78,7 @@ li{
 }
 img {
   display: block;
-
+  margin: 0;
 }
 
 .visually-hidden {
@@ -338,6 +337,12 @@ img {
 
 .moviedetails-container {
   display: flex;
+  padding: 0 16px;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
+}
+
+.back-link {
+  align-self: start;
 }
