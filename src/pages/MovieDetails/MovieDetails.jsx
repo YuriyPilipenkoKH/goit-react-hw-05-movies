@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchMovieById } from 'services/movies-api';
 import Loader from 'components/Loader/Loader';
 import { CardWrapper , StyledLink, InfoWrapper} from './MovieDetails.styled';
-import Button from 'components/Button/Button';
 
  const MovieDetails =() => {
     const [movie, setMovie] = useState({})
@@ -29,9 +28,9 @@ import Button from 'components/Button/Button';
     
   return (
     <div className='moviedetails-container'>
-        <Button className= 'back-link'>
+        <div className= 'back-link'>
             <StyledLink to={backLinkLocation.current}>Go back</StyledLink>
-        </Button>
+        </div>
         <CardWrapper>
             <img src={poster_path &&  `https://image.tmdb.org/t/p/w500/${poster_path}`}
              alt={title}
@@ -54,19 +53,13 @@ import Button from 'components/Button/Button';
                     }
                  </ul>
                  <span>Release: <span className='dynamic'>{release_date}</span></span>
-        <ul className='special-links'>
-            <Button >
+        <ul className='special-links'>    
                 <StyledLink to="cast">Cast</StyledLink>
-            </Button>
-            <Button>
                 <StyledLink to="reviews">Reviews</StyledLink>
-            </Button>
         </ul>
 
              </InfoWrapper>
-     
         </CardWrapper>
-
 
         {isLoading && <Loader className="loader" />}
       <Outlet/>

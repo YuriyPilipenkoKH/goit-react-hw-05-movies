@@ -19,8 +19,7 @@ export const StyledButton = styled.button`
   box-shadow: var(--shadow-four);
   transition: all 0.4s ease;
 
-  &:hover,
-  &:focus{
+  &:hover  {
     color: #888;
     background-color: var(--bright-green);
     box-shadow: var(--shadow-two);
