@@ -2,12 +2,8 @@ import axios from "axios";
 import Notiflix from "notiflix";
 
 const KEY = '178f7f77d46b35123e714d6df55184fe'
-
 const BASE_URL = `https://api.themoviedb.org/3/`;
-// const BASE_URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${KEY}&append_to_response=videos,images`;
 
-//details https://api.themoviedb.org/3/movie/343611?api_key=${KEY}&page=1
-// https://api.themoviedb.org/3/movie/157336/videos?api_key=API_KEY
 
 export const searchMovies = async (query) =>  {
    
@@ -22,15 +18,13 @@ export const searchMovies = async (query) =>  {
         return results
     } catch (error) {
         
-    }//&append_to_response=videos,images
+    }
 }
 
 export const fetchTrendingMovies = async () =>  {
     try {
 
       const data =  await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}`)
-     
-
       const {results} = data.data
       return results
 

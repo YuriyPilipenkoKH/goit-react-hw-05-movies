@@ -11,6 +11,7 @@ import Poster from '../../images/20_centuryfox.png'
  const Movies =() => {
   const [movies, setMovies] = useState([])
   const [query, setQuery] = useState('')
+  const [error, setError] = useState(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const searchWord = searchParams.get('searchWord') ?? '';
@@ -24,6 +25,9 @@ import Poster from '../../images/20_centuryfox.png'
     if(searchWord){
       searchMovies(searchWord)
       .then(response => setMovies(response))
+      .catch((error) => {
+        setError(error.message); // Set the error message
+      })
     }
 
 }, [searchWord]);
@@ -84,7 +88,7 @@ import Poster from '../../images/20_centuryfox.png'
                       <StyledLink   
                              to={`${movie.id}`}
                              state={{ from: location }}               
-                            // location ={ location }               
+                                       
                                 >
                     <ImgWrap>
                       <img
@@ -92,7 +96,6 @@ import Poster from '../../images/20_centuryfox.png'
                        src={
                         movie.poster_path
                             ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
-                            // : 'https://abrakadabra.fun/uploads/posts/2022-03/1647481521_4-abrakadabra-fun-p-kinokompanii-mira-zastavki-5.jpg'
                             : Poster
                                         }
                       alt ={movie.original_title}
@@ -111,6 +114,8 @@ import Poster from '../../images/20_centuryfox.png'
             })}
         </StyledUl>
         {isLoading && <Loader className="loader" />}
+
+        {error && <div>{error}</div>}
     </>
   )
 }

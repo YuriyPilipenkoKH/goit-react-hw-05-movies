@@ -22,8 +22,7 @@ import Actress from '../../images/Monica.png'
           setIsLoading(false);
       }, 300);
       
-    },[movieId]);//character
-
+    },[movieId]);
 
   return (
     <>
