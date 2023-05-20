@@ -3,9 +3,10 @@ import {Link}  from 'react-router-dom';
 
 
 export const CardWrapper  = styled.div`
+min-width: 700px;
     width: 90%;
     height: 450px;
-    /* margin: 0 auto; */
+ 
     display: flex;
     gap: 32px;
     background-color: var(--beige);
@@ -80,7 +81,7 @@ export const StyledLink  = styled(Link)`
     font-weight: 400;
 `
 export const InfoWrapper  = styled.div`
-
+    
     padding:20px 20px 20px 0;
     display: grid;
     grid-row-gap: 8px;
@@ -94,6 +95,7 @@ export const InfoWrapper  = styled.div`
 
    &>p{
     grid-column: 1 / 3;
+    overflow: auto;
    }
 
    &>.genres{

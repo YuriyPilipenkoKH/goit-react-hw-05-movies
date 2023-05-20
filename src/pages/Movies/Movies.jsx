@@ -1,6 +1,6 @@
 import { searchMovies } from "services/movies-api"
 import { useEffect,useState } from "react"
-import {  useLocation } from 'react-router-dom';
+import {  useLocation , useSearchParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "pages/Home/Home.styled";
 import { SearchForm } from "./Movies.styled";
@@ -10,12 +10,19 @@ import { iconLens2 } from "utils/svgIcons";
  const Movies =() => {
   const [movies, setMovies] = useState([])
   const [query, setQuery] = useState('')
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchWord = searchParams.get('searchWord') ?? '';
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
+  console.log('searchParams', searchParams, 'searchWord',searchWord);
 
   useEffect(() => {
+    if(searchWord){
+      searchMovies(searchWord);
+    }
 
-  }, [])
+}, [searchWord]);
   
   const handleChange = (e) => {
     const { value } = e.currentTarget;  
@@ -36,6 +43,16 @@ import { iconLens2 } from "utils/svgIcons";
     // setQuery('');
   };
 
+//   const handleSubmit = evt => {
+//     evt.preventDefault();
+//     if (query === '') {
+//         return setSearchParams({});
+//     }
+//         searchMovies(query)
+//     .then(response => setMovies(response))
+//     setSearchParams({searchWord: query });
+// };
+
 
   return (
     <>
@@ -47,7 +64,7 @@ import { iconLens2 } from "utils/svgIcons";
          name="query" 
          value={query}
          onChange={handleChange}
-        
+        placeholder="Search movies"
          />
         <Button type='submit'> {iconLens2}</Button>
 

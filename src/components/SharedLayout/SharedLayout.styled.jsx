@@ -29,9 +29,9 @@ export const MainHeader= styled.header`
     color:var(--teal);
     transition: 0.4s ease;
 
-&:hover {
+  &:hover {
     color: var(--react-color);
-}
+  }
   }
 
   >.KH-icon {
@@ -56,18 +56,15 @@ export const StyledLink = styled(NavLink)`
   border:2px solid transparent;
   border-radius: 4px;
   text-decoration: none;
-  color: black;
+  color: #222;
   font-weight: 500;
   transition: 0.3s ease;
 
-  &:hover{
-    border: 2px solid var(--green);
-  }
+
 
   &.active {
-    color: white;
+    color: #eee;
     background-color: var(--green);
-    border:2px solid transparent;
     box-shadow: var(--shadow-four);
   }
 `;
