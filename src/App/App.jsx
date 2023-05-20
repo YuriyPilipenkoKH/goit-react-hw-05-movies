@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy } from 'react';
- import  SharedLayout from "components/SharedLayout/SharedLayout";
+import  SharedLayout from "components/SharedLayout/SharedLayout";
 import { Container } from 'components/container/Container';
 
 
