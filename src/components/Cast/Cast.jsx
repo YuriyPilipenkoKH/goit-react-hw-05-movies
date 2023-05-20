@@ -5,6 +5,8 @@ import Loader from 'components/Loader/Loader';
 import { ActorsList, ActorCard  } from './Cast.styled';
 import { ImgWrap } from 'pages/Home/Home.styled';
 import { Note } from 'pages/Movies/Movies.styled';
+import Actor from '../../images/Patrik.png'
+import Actress from '../../images/Monica.png'
 
  const Cast =()=> {
     const [actors, setActors] = useState([]);
@@ -36,7 +38,9 @@ import { Note } from 'pages/Movies/Movies.styled';
                           src={
                             actor.profile_path
                                   ? `https://image.tmdb.org/t/p/original${actor.profile_path}`
-                                  : 'https://abrakadabra.fun/uploads/posts/2022-02/1644922919_1-abrakadabra-fun-p-risunki-krutie-dlya-patsanov-1.jpg'
+                                  :  actor.gender === 1
+                                     ? Actress
+                                     : Actor
                           }
                           alt={actor.name}
                           width='200'                    />
@@ -47,7 +51,7 @@ import { Note } from 'pages/Movies/Movies.styled';
                       ?  <p></p>
                       :  <p>Role: {actor.character}</p>
                       }
-                   
+                
                     </div>
                 </ActorCard>
             ))}

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { fetchMovieById } from 'services/movies-api';
 import Loader from 'components/Loader/Loader';
 import { CardWrapper , StyledLink, InfoWrapper} from './MovieDetails.styled';
+import Snatch from '../../images/snatch.png'
 
  const MovieDetails =() => {
     const [movie, setMovie] = useState({})
@@ -32,7 +33,11 @@ import { CardWrapper , StyledLink, InfoWrapper} from './MovieDetails.styled';
             <StyledLink to={backLinkLocation.current}>Go back</StyledLink>
         </div>
         <CardWrapper>
-            <img src={poster_path &&  `https://image.tmdb.org/t/p/w500/${poster_path}`}
+
+            <img src={poster_path 
+             ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+             : Snatch
+            }
              alt={title}
              width='300'
              />
@@ -46,12 +51,12 @@ import { CardWrapper , StyledLink, InfoWrapper} from './MovieDetails.styled';
                  
                  <ul className='genres'>
                  {genres &&
-                    genres.slice(0, 3).map(genre => (
+                   genres.slice(0, 3).map(genre => (
                         <li key={genre.id}>
                             {genre.name}
                         </li>
                     ))
-                        
+                  
                     }
                  </ul>
                  <span>Release: <span className='dynamic'>{release_date}</span></span>

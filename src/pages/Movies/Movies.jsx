@@ -6,7 +6,7 @@ import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "page
 import { SearchForm } from "./Movies.styled";
 import Button from "components/Button/Button";
 import { iconLens2 } from "utils/svgIcons";
-import Actor from '../../images/actor.png'
+import Poster from '../../images/20_centuryfox.png'
 
  const Movies =() => {
   const [movies, setMovies] = useState([])
@@ -14,11 +14,11 @@ import Actor from '../../images/actor.png'
 
   const [searchParams, setSearchParams] = useSearchParams();
   const searchWord = searchParams.get('searchWord') ?? '';
-  console.log(searchParams);
+
 
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
-  // console.log('searchParams', searchParams, 'searchWord',searchWord);
+
 
   useEffect(() => {
     if(searchWord){
@@ -93,7 +93,7 @@ import Actor from '../../images/actor.png'
                         movie.poster_path
                             ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
                             // : 'https://abrakadabra.fun/uploads/posts/2022-03/1647481521_4-abrakadabra-fun-p-kinokompanii-mira-zastavki-5.jpg'
-                            : Actor
+                            : Poster
                                         }
                       alt ={movie.original_title}
                        />
