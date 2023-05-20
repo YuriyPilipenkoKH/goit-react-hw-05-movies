@@ -35,6 +35,7 @@ import { iconLens2 } from "utils/svgIcons";
     setIsLoading(true);
     searchMovies(query)
     .then(response => setMovies(response))
+    setSearchParams({searchWord: query });
 
     setTimeout(() => {
       setIsLoading(false);
