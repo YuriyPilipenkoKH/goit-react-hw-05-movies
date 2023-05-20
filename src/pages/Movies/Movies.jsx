@@ -6,6 +6,7 @@ import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "page
 import { SearchForm } from "./Movies.styled";
 import Button from "components/Button/Button";
 import { iconLens2 } from "utils/svgIcons";
+import Actor from '../../images/actor.png'
 
  const Movies =() => {
   const [movies, setMovies] = useState([])
@@ -13,13 +14,16 @@ import { iconLens2 } from "utils/svgIcons";
 
   const [searchParams, setSearchParams] = useSearchParams();
   const searchWord = searchParams.get('searchWord') ?? '';
+  console.log(searchParams);
+
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
-  console.log('searchParams', searchParams, 'searchWord',searchWord);
+  // console.log('searchParams', searchParams, 'searchWord',searchWord);
 
   useEffect(() => {
     if(searchWord){
-      searchMovies(searchWord);
+      searchMovies(searchWord)
+      .then(response => setMovies(response))
     }
 
 }, [searchWord]);
@@ -35,6 +39,7 @@ import { iconLens2 } from "utils/svgIcons";
     setIsLoading(true);
     searchMovies(query)
     .then(response => setMovies(response))
+
     setSearchParams({searchWord: query });
 
     setTimeout(() => {
@@ -79,6 +84,7 @@ import { iconLens2 } from "utils/svgIcons";
                       <StyledLink   
                              to={`${movie.id}`}
                              state={{ from: location }}               
+                            // location ={ location }               
                                 >
                     <ImgWrap>
                       <img
@@ -86,7 +92,8 @@ import { iconLens2 } from "utils/svgIcons";
                        src={
                         movie.poster_path
                             ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
-                            : 'https://abrakadabra.fun/uploads/posts/2022-03/1647481521_4-abrakadabra-fun-p-kinokompanii-mira-zastavki-5.jpg'
+                            // : 'https://abrakadabra.fun/uploads/posts/2022-03/1647481521_4-abrakadabra-fun-p-kinokompanii-mira-zastavki-5.jpg'
+                            : Actor
                                         }
                       alt ={movie.original_title}
                        />
