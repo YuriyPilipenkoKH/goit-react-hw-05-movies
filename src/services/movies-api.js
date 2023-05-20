@@ -17,7 +17,7 @@ export const searchMovies = async (query) =>  {
          }
         return results
     } catch (error) {
-        
+        console.log(error);
     }
 }
 
@@ -29,7 +29,7 @@ export const fetchTrendingMovies = async () =>  {
       return results
 
     } catch (error) {
-        
+      console.log(error);
     }
     return 
 }
@@ -42,7 +42,7 @@ export const fetchMovieById = async (id) =>  {
     
       return data.data
     } catch (error) {    
-
+      console.log(error);
     }
     return 
 }
@@ -55,7 +55,7 @@ export const getCast = async (id) =>  {
       
       return data.data.cast
     } catch (error) {
-        
+      console.log(error);
     }
     return 
 }
@@ -67,7 +67,7 @@ export const getReviews = async (id) =>  {
       
       return data.data.results
     } catch (error) {
-        
+      console.log(error);
     }
     return 
 }

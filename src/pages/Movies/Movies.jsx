@@ -53,15 +53,6 @@ import Poster from '../../images/20_centuryfox.png'
     // setQuery('');
   };
 
-//   const handleSubmit = evt => {
-//     evt.preventDefault();
-//     if (query === '') {
-//         return setSearchParams({});
-//     }
-//         searchMovies(query)
-//     .then(response => setMovies(response))
-//     setSearchParams({searchWord: query });
-// };
 
 
   return (
