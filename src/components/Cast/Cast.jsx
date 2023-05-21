@@ -5,8 +5,7 @@ import Loader from 'components/Loader/Loader';
 import { ActorsList, ActorCard  } from './Cast.styled';
 import { ImgWrap } from 'pages/Home/Home.styled';
 import { Note } from 'pages/Movies/Movies.styled';
-import Actor from '../../images/Patrik.png'
-import Actress from '../../images/Monica.png'
+import { ActorsListMaker , ActressesListMaker} from 'utils/castList';
 
  const Cast =()=> {
     const [actors, setActors] = useState([]);
@@ -38,8 +37,8 @@ import Actress from '../../images/Monica.png'
                             actor.profile_path
                                   ? `https://image.tmdb.org/t/p/original${actor.profile_path}`
                                   :  actor.gender === 1
-                                     ? Actress
-                                     : Actor
+                                     ? ActressesListMaker()
+                                     : ActorsListMaker()
                           }
                           alt={actor.name}
                           width='200'                    />
@@ -50,7 +49,7 @@ import Actress from '../../images/Monica.png'
                       ?  <p></p>
                       :  <p>Role: {actor.character}</p>
                       }
-                
+               
                     </div>
                 </ActorCard>
             ))}
