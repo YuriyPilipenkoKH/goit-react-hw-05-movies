@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { lazy } from 'react';
 import  SharedLayout from "components/SharedLayout/SharedLayout";
 import { Container } from 'components/container/Container';
-
+import ToTopButton from "components/ToTopButton/ToTopButton";
 
 const Home = lazy(() => import('pages/Home/Home'));
 const Movies = lazy(() => import('pages/Movies/Movies'));
@@ -25,6 +25,7 @@ const NotFound = lazy(() => import('pages/NotFound/NotFound'));
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
+   <ToTopButton></ToTopButton>
     </Container>
   )
 }
