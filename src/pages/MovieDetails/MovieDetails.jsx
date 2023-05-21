@@ -56,7 +56,7 @@ import Snatch from '../../images/snatch.png'
                             {genre.name}
                         </li>
                     ))
-                  
+             
                     }
                  </ul>
                  <span>Release: <span className='dynamic'>{release_date}</span></span>

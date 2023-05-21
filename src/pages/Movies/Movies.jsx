@@ -6,7 +6,7 @@ import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "page
 import { SearchForm } from "./Movies.styled";
 import Button from "components/Button/Button";
 import { iconLens2 } from "utils/svgIcons";
-import Poster from '../../images/20_centuryfox.png'
+import { FilmCompanyListMaker } from "utils/castList";
 
  const Movies =() => {
   const [movies, setMovies] = useState([])
@@ -37,6 +37,8 @@ import Poster from '../../images/20_centuryfox.png'
     setQuery(value);
  
   };
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -87,7 +89,7 @@ import Poster from '../../images/20_centuryfox.png'
                        src={
                         movie.poster_path
                             ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
-                            : Poster
+                            : FilmCompanyListMaker()
                                         }
                       alt ={movie.original_title}
                        />

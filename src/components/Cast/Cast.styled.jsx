@@ -16,12 +16,13 @@ export const ActorCard = styled.div`
 &>.info-wrapper {
     background-color: var(--beige);
     padding: 12px 8px;
-    height: 120px;
+    height: 110px;
     border-radius: 0 0 8px 8px;
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
-    gap:12px;
+    gap:10px;
 
     &>h3 {
       text-align: center;
@@ -29,6 +30,7 @@ export const ActorCard = styled.div`
 
     &>p{
       font-weight: 600;
+      line-height: 1.3em;
       color:#555 ;
     }
 }
