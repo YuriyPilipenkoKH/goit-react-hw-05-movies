@@ -7,13 +7,13 @@ import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "./Ho
  
 const Home = () => {
     const [movies, setMovies] = useState([])
-    const [page, setPage] = useState(1)
+    // const [page, setPage] = useState(1)
     const [isLoading, setIsLoading] = useState(false);
     const location = useLocation();
 
 useEffect(() => {
     setIsLoading(true);
-    fetchTrendingMovies(page)
+    fetchTrendingMovies(1)
     .then(response => {
         console.log('response', response)
          setMovies(response.results)})
