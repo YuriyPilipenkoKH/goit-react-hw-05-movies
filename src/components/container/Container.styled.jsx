@@ -14,18 +14,19 @@ export const MainContainer = styled.div`
 
     &>header {
         align-self: start;
-        height: 86px;
+        
     }
     &>.movies{
-        justify-content: center;
+        /* justify-content: center; */
         align-self: flex-start;
-        height: auto;
     }
 
-
+    &>.moviedetails-container {
+        align-self: flex-start;
+    }
 
     &>footer {
        align-self: flex-end;
-       height: 90px;
+       
     }
 `

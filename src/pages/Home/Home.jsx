@@ -7,13 +7,16 @@ import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "./Ho
  
 const Home = () => {
     const [movies, setMovies] = useState([])
+    const [page, setPage] = useState(1)
     const [isLoading, setIsLoading] = useState(false);
     const location = useLocation();
 
 useEffect(() => {
     setIsLoading(true);
-    fetchTrendingMovies()
-    .then(response =>  setMovies(response))
+    fetchTrendingMovies(page)
+    .then(response => {
+        console.log('response', response)
+         setMovies(response.results)})
 
     setTimeout(() => {
         setIsLoading(false);
@@ -23,7 +26,7 @@ useEffect(() => {
     return (
         <>
         <h2 className="visually-hidden"> Trending Movies</h2>
-        <StyledUl>
+        <StyledUl id="container">
             {movies.map(movie => {
                 return <li key={movie.id} >
                       <StyledLink  

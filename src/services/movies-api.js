@@ -21,12 +21,12 @@ export const searchMovies = async (query) =>  {
     }
 }
 
-export const fetchTrendingMovies = async (page = 1) =>  {
+export const fetchTrendingMovies = async (page) =>  {
     try {
 
       const data =  await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}&page=${page}`)
-      const {results} = data.data
-      return results
+
+      return  data.data
 
     } catch (error) {
       console.log(error);
