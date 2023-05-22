@@ -21,7 +21,7 @@ const SharedLayout = () => {
       <Suspense >
                 <Outlet />
       </Suspense>
-
+      
       <MainFooter>React-hw-05-movies 2023</MainFooter>
         </>
     );

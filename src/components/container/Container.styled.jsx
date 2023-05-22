@@ -9,7 +9,7 @@ export const MainContainer = styled.div`
     place-items: center;
     grid-gap: 30px;
     background-color: var(--body-color);
-    padding: 0 16px 32px;
+    padding: 0 16px ;
     margin: 0 auto;
 
     &>header {

@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "./Home.styled"; 
 
+
  
 const Home = () => {
     const [movies, setMovies] = useState([])
@@ -53,6 +54,8 @@ useEffect(() => {
                 
             })}
         </StyledUl>
+
+      
         {isLoading && <Loader className="loader" />}
         </>
     )

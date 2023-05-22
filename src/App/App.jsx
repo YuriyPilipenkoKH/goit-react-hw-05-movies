@@ -25,7 +25,7 @@ const NotFound = lazy(() => import('pages/NotFound/NotFound'));
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
-   <ToTopButton></ToTopButton>
+   <ToTopButton/>
     </Container>
   )
 }
