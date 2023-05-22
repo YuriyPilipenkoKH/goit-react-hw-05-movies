@@ -1,4 +1,4 @@
-import { MainHeader, StyledLink } from './SharedLayout.styled'; 
+import { MainHeader, StyledLink,MainFooter} from './SharedLayout.styled'; 
 import { Suspense } from 'react';
 import {  Outlet } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../images/react-router-movies.svg'
@@ -20,7 +20,9 @@ const SharedLayout = () => {
 
       <Suspense >
                 <Outlet />
-            </Suspense>
+      </Suspense>
+
+      <MainFooter>React-hw-05-movies 2023</MainFooter>
         </>
     );
 };

@@ -14,7 +14,7 @@ export const MainHeader= styled.header`
   padding: 32px 16px 16px;
   background-color: var(--body-color);
  
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #222;
 
   > nav {
     display: flex;
@@ -68,3 +68,13 @@ export const StyledLink = styled(NavLink)`
     box-shadow: var(--shadow-four);
   }
 `;
+
+export const MainFooter = styled.footer`
+  width: 100%;
+  padding: 32px 16px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #777;
+  border-top: 1px solid #222;
+`

@@ -21,10 +21,10 @@ export const searchMovies = async (query) =>  {
     }
 }
 
-export const fetchTrendingMovies = async () =>  {
+export const fetchTrendingMovies = async (page = 1) =>  {
     try {
 
-      const data =  await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}`)
+      const data =  await axios.get(`${BASE_URL}trending/movie/day?api_key=${KEY}&page=${page}`)
       const {results} = data.data
       return results
 
