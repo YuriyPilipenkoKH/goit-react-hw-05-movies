@@ -1,6 +1,17 @@
 import styled from 'styled-components';
 import reactIcon from "../../images/reactHook.svg"
 
+export const MoviesWrap = styled.div`
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &>form {
+        align-self: center;
+    }
+`
+
 export const SearchForm = styled.form`
     
     display: flex;

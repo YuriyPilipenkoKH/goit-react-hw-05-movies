@@ -3,7 +3,7 @@ import { useEffect,useState } from "react"
 import {  useLocation , useSearchParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import { StyledLink, StyledUl, MovieTitle, CardInfo, Count, ImgWrap } from "pages/Home/Home.styled";
-import { SearchForm } from "./Movies.styled";
+import { SearchForm , MoviesWrap} from "./Movies.styled";
 import Button from "components/Button/Button";
 import { iconLens2 } from "utils/svgIcons";
 import { FilmCompanyListMaker } from "utils/castList";
@@ -58,7 +58,7 @@ import { FilmCompanyListMaker } from "utils/castList";
 
 
   return (
-    <>
+    <MoviesWrap className="movies">
       <h2 className="visually-hidden">Movie Search</h2>
       <SearchForm autoComplete="off" onSubmit={handleSubmit}>
 
@@ -109,7 +109,7 @@ import { FilmCompanyListMaker } from "utils/castList";
         {isLoading && <Loader className="loader" />}
 
         {error && <div>{error}</div>}
-    </>
+    </MoviesWrap>
   )
 }
 export default Movies
