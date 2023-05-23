@@ -14,7 +14,7 @@ const Home = () => {
 
 useEffect(() => {
     setIsLoading(true);
-    fetchTrendingMovies(1)
+    fetchTrendingMovies(2)
     .then(response => {
         console.log('response', response)
          setMovies(response.results)})

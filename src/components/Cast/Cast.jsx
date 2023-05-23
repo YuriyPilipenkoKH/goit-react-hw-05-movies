@@ -6,6 +6,8 @@ import { ActorsList, ActorCard  } from './Cast.styled';
 import { ImgWrap } from 'pages/Home/Home.styled';
 import { Note } from 'pages/Movies/Movies.styled';
 import { ActorsListMaker , ActressesListMaker} from 'utils/castList';
+import { femaleNames } from 'utils/castList';
+
 
  const Cast =()=> {
     const [actors, setActors] = useState([]);
@@ -29,7 +31,12 @@ import { ActorsListMaker , ActressesListMaker} from 'utils/castList';
        {actors < 1 && (
                 <Note>We don`t have a cast list for this movie!</Note>
             )}
-       {actors.slice(0, 16).map(actor => (
+       {actors.slice(0, 16).map(actor => {
+        const retrieveName  = (actor.name.split(' '))[0]
+        console.log(retrieveName);
+      //  const matches = femaleNames.find(el => el === retrieveName )
+      //  console.log(matches);
+      return (
                 <ActorCard key={actor.id && actor.id}>
                     <ImgWrap>
                       <img
@@ -38,8 +45,15 @@ import { ActorsListMaker , ActressesListMaker} from 'utils/castList';
                                   ? `https://image.tmdb.org/t/p/original${actor.profile_path}`
                                   :  actor.gender === 1
                                      ? ActressesListMaker()
-                                     : ActorsListMaker()
+                                     : actor.gender === 2
+                                       ?  ActorsListMaker()
+                                       :  actor.gender === 0
+                                         ? (femaleNames.find(el => el === retrieveName ))
+                                            ?  ActressesListMaker()
+                                            :  ActorsListMaker()
+                                         : '#'   
                           }
+
                           alt={actor.name}
                           width='200'                    />
                     </ImgWrap>
@@ -52,7 +66,7 @@ import { ActorsListMaker , ActressesListMaker} from 'utils/castList';
                
                     </div>
                 </ActorCard>
-            ))}
+             )})}
        </ActorsList>
        {isLoading && <Loader className="loader" />}
     </>
